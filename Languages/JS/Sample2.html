@@ -1,0 +1,89 @@
+<html>
+<script>
+//Event Handling 
+function openAlert(mess){
+	alert(mess);
+}
+</script>
+<a href="JavaScipt:void(0)" onClick="alert('Hello');"> Say Hello</a><br/>
+<a href="JavaScipt:void(0)" onClick="openAlert('Hi How are you?');"> Say Hello</a><br/>
+
+
+<a href="JavaScipt:void(0)" onmouseover="this.style.color='red';" onmouseout="this.style.color='blue';"
+
+ondblclick="this.text='You Double clicked me';" onmousedown="thistext='Don\'t press too hard';"
+onmouseup="this.text='Thank you';"> Make Me Red</a><br/>
+
+
+<input type="text" id="randInput" onChange="var dataEntered=document.getElementById('randInput').value; alert('User typed '+dataEntered);">
+
+<br/><br/>
+<form id="sampleform">
+	<input id='charInput' type="text">
+	<p id="keydata"> Key data here</p>
+	<input type="Submit" value="Submit">
+	<input type="reset" value="Reset">
+</form>
+
+
+<img src="" id="logo"/>
+<button id="logoButton">Get Logo</button>
+<br/>
+<br/>
+<input id='mouseInput' type='text' size="30"><br/>
+<br/>
+Mouse X: <input type="text" id="mouseX"><br/>
+Mouse Y:<input type="text" id="mouseY"><br/>
+
+<br/>
+<button id='clearInputs' value="Clear Inputs">Clear Inputs</button>
+
+	<script>
+		function getChar(event){
+			if(event.which==null){
+				return String.fromCharCode(evemt.keyCode);
+			}else if (event.which!=0 && event.charCode!=0){
+				return String.fromCharCode(event.which);
+			}else{
+				return null;
+			}
+		}
+		document.getElementById('charInput').onkeypress=
+		function(event){ 
+			var char=getChar(event || window.event);
+			if(!char) return false;
+		//Not working	
+			document.getElementById('keyData').innerHTML= char +" was clicked"; 
+			return true;
+		}
+		
+		document.getElementById('charInput').onfocus=
+		function(event){
+			document.getElementById();
+		}
+		
+document.body.onmousemove=function(e){
+			e=e||window.event;
+			var pageX=e.pageX;
+			var pageY=e.pageY;
+			
+			if(pageX==undefined){
+				pageX=e.clientX+document.body.scrollLeft+document.documentElement.scrollLeft;
+				pageY=e.clientY+document.body.scrollTop+documentElement.scrollTop;
+			}
+		document.getElementById('mouseX').value=pageX;
+		document.getElementById('mouseY').value=pageY;
+		
+		};
+		
+document.getElementById('clearInputs').onClick=function(event){
+	var inputElements=document.getElementsByTagName('input');
+	
+	for(var i=0;i<inputElements.length){
+		if(inputElements[i].type=='text'){
+			inputElements[i].value="";
+		}
+	}
+};
+	</script>
+</html>
