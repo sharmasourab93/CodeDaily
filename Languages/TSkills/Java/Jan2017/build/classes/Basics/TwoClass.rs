@@ -1,2 +1,0 @@
-Basics.TwoClass
-Basics.OneClass

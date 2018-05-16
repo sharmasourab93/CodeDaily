@@ -1,2 +1,0 @@
-Generics.Test
-Generics.Main

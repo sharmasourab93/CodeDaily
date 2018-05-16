@@ -1,3 +1,0 @@
-UsingThreads.SyncDemo
-UsingThreads.Sender
-UsingThreads.ThreadedSend

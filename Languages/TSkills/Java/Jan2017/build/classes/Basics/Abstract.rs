@@ -1,2 +1,0 @@
-Basics.MyAbstractClass
-Basics.Abstract

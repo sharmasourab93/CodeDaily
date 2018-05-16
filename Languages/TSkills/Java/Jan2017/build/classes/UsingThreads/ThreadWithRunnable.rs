@@ -1,2 +1,0 @@
-UsingThreads.ThreadWithRunnable
-UsingThreads.MulthreadingDemo
