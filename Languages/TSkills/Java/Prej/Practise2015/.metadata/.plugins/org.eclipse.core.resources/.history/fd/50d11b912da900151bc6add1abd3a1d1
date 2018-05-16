@@ -1,0 +1,11 @@
+public class demmo {
+	int a,b;
+	a=5;
+	b=7;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+
+	}
+
+}

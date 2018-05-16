@@ -1,0 +1,34 @@
+import java.util.HashSet;
+import java.util.Set;
+
+public class HsetDemo {
+
+	public static void main(String[] args) {
+		Set s=new HashSet();
+		s.add("Nitu");
+		s.add("Rahil");
+		s.add("Raghav");
+		s.add("Nitu");
+		s.add("Rahil");
+		s.add("Raghav");
+		s.add("Nitu");
+		s.add("Rahil");
+		s.add("Raghav");
+		s.add("Nitu");
+		s.add("Rahil");
+		s.add("Raghav");
+		s.add("Nitu");
+		s.add("Rahil");
+		s.add("Raghav");
+		s.add("Nitu");
+		s.add("Rahil");
+		s.add("Raghav");
+		s.add("Nitu");
+		s.add("Rahil");
+		s.add("Raghav");
+		for(Object ob : s){
+			System.out.println(ob);
+		}
+		
+	}
+}

@@ -1,0 +1,2 @@
+import bazooka
+dir(bazooka)

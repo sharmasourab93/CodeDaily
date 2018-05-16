@@ -1,0 +1,18 @@
+
+public class Student {
+
+	/**
+	 * @param args
+	 */
+	int sno;
+	String name;
+	char grade;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Student obj=new Student();
+		obj.sno=1;
+		obj.name="Kandarpa";
+		obj.grade='A';
+	}
+
+}

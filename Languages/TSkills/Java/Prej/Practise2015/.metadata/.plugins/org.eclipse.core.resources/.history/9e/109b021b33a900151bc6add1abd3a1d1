@@ -1,0 +1,21 @@
+package sup;
+class Emp{
+		int empno;
+		String name;
+		double basic;
+		public Emp(int empno,String name,double basic){
+				this.empno=empno;
+				this.name=name;
+				this.basic=basic;
+		}
+	public String toString(){
+			return "Empno "+ empno+" Name "+name+" Basic "+basic;
+	}
+}
+public class SupC {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Emp n=new Emp();
+	}
+
+}

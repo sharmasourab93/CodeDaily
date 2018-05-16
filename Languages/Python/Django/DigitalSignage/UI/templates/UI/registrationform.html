@@ -1,0 +1,34 @@
+<html>
+<title>Register Form</title>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-12 col-md-7">
+			<div class="panel panel-default">
+				<div class="panel-body">
+				<h3>Create a New Account</h3>
+				<form class="form-horizantal" action="" method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					<div class="form-group">
+						<label name="email">email</label>
+						<input type="text" name="email" placeholder="Enter Email ID" value="">
+					</div>
+					<div class="form-group">
+						<label name="username">Username</label>
+						<input type="text" name="username" placeholder="Enter User Name" value="">
+					</div>
+					<div class="form-group">
+						<label name="password">Password</label>
+						<input type="password" name="password" placeholder="Enter password">
+					</div>
+					<div class="form-group">
+						<button type="submit" value="submit" name="save" style="height: 30px;width: 60px">
+						Submit
+						</button>
+					</div>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</html>

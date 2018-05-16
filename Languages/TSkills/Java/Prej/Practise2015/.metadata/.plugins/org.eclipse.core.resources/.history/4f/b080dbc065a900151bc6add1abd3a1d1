@@ -1,0 +1,44 @@
+package test;
+import java.util.Scanner;
+@SuppressWarnings("serial")
+class InvalidEmailException extends Exception {
+	public String InvalidEmailException(String str){
+		str="@ is not present.Invalid Email Id.";
+		return str;
+	}
+}
+class InvalidEmailLengthException extends Exception{
+	public String InvalidEmailLengthException(String s){
+		s="Invalid Email Length Exception";
+		return s;
+	}
+}
+public class test1 {
+	public static void main(String[] args) throws InvalidEmailLengthException {
+		// TODO Auto-generated method stub
+		/**
+		 * Write a program to validate email address
+		 * 1) first check if '@' is not found then throw InvaludEmailException
+		 * 2) If first part length>20 then throw InvalidEmailLengthException
+		 */
+		Scanner scan=new Scanner(System.in);
+		System.out.println("\nEnter the email id: ");
+		String emailid=scan.next();
+		if(emailid.length()>20){
+			
+		}else{
+			throw(new InvalidEmailLengthException());
+		}
+		char ch[]=emailid.toCharArray();
+		for(int i=0;i<emailid.length();i++){
+				if(ch[i]!='@'){
+					try {
+						throw (new InvalidEmailException());
+					} catch (InvalidEmailException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+		}
+	}

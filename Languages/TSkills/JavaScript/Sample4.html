@@ -1,0 +1,31 @@
+<html>
+<body>
+<div id="sampDiv">
+In this video I did my best to create the most comprehensive JavaScript tutorial I could all in one video. <em>I cover all of the following topics :</em> Variables, Math, Random Numbers, Strings, Styling Strings, If, Switch, Ternary Operator, <p>While, Do While, For, For In, Arrays, Functions, Pass Function as Parameter, Receive Variable Number of Arguments, Return Variable Number of Arguments, Recursive Functions, Event Handling, Mouse Events, Key Events, Change Tag Value, Change Class, Change Input Element</p>,<p>Mouse X / Y Coordinates, Element Styling, <em>Manipulating URLs</em>, Get Elements by Tag Name, <b>Editing Child Nodes</b>, Setting Attributes, Adding Elements, OO JavaScript, Form Validation, Exception Handling and much more.</p>
+</div>
+<img src="Dexter.png" id="logo2" alt="NTT Logo" height="180" width="180"><br/>
+
+<button id="goToGoogle">Go to Google</button><br/>
+<button id="forwardPage">Forward Page</button><br/>
+<button id="backpage">BackPage</button><br/>
+<button id="reload">Reload Page</button><br/>
+<script>
+var pElements=document.getElementsByTagName('p');
+pElements[1].style.backgroundColor='#EFDECD';
+
+var paragraph3=document.createElement("p");
+
+paragraph3.setAttribute("id","paragraph3");
+paragraph3.innerHTML="Impossibble is possible";
+/*document.write("Current URL:",window.location.href,"<br/>");
+document.write("Current URL:",window.location.hostname,"<br/>");
+document.write("Current Path:",window.location.pathname,"<br/>");
+
+document.getElementById('goToGoogle').onclick=function(event){window.location.href="http://google.com"};
+document.getElementById('forwardPage').onclick=function(event){history.forward();};
+document.getElementById('backpage').onclick=function(event){history.back();};
+document.getElementById('reload').onclick=function(event){window.location.reload(true);};*/
+</script>
+
+</body>
+</html>

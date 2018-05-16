@@ -1,0 +1,19 @@
+package idemo;
+interface Data{
+	void name();
+	void email();
+}
+class Shwtha implements Data{
+	
+}
+public class InterfaceDemo {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

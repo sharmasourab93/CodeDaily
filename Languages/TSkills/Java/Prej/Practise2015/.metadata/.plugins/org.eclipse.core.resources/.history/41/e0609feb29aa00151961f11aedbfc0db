@@ -1,0 +1,21 @@
+class Test{
+	public void swap(int x,int y){
+		int t=x;
+		x=y;
+		y=t;
+		System.out.println("X "+x+" Y "+y);
+	}
+}
+public class GenDemo {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Test obj=new Test();
+		int x=12,y=13;
+		obj.swap(x,y);
+	}
+
+}

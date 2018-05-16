@@ -1,0 +1,41 @@
+<html>
+<script>
+
+//Object Oriented Handling
+var cust1={
+	name:"John Smith",
+	street:"123 Main",
+	city:"PittsBurgh",
+	state:"PA",
+	email:"jsmith@aol.com",
+	balance:125.50,
+	payDown:function(amtPaid){
+		this.balance-=amtPaid;
+	},
+	addToBal:function(amtCharged){ this.balance+=amtCharged;},
+};
+
+document.write("Customer Name:",cust1.name,"<br/>");
+cust1.street="213 Main";
+cust1.country="US";
+document.write("Customer Country:",cust1.country,"<br/>");
+delete cust1.country;
+
+for(var prop in cust1){
+	if(cust1.hasOwnProperty(prop)){
+		document.write(prop+"  "+cust1[prop],"<br/>");
+	}
+}
+document.write("name1 in cust1","street" in cust1,"<br/>");
+
+function getInfo(cust){
+	return cust1.name+" lives at "+cust1.street+" in "+cust1.city+" "+cust1.state+" email: "+cust1.balance+"<br/>";
+}
+document.write(getInfo(cust1));
+
+cust1.payDown(20.50);
+cust1.addToBal(10.00);
+
+document.write(getInfo(cust1),"<br/>");
+</script>
+</html>

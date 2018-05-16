@@ -1,0 +1,16 @@
+{% extends 'music/main.html' %}
+<!--Loads the path to your static files-->
+{% block body %}
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'music/style.css'%}"/>
+{% if object_list %}
+	<h3> Here are all my albums</h3>
+	<ul>
+		{% for album in object_list %}
+			<li><a href="{% url 'music:detail' album.id %}">{{album.album_title}}</a></li>
+		{% endfor %}
+	</ul>
+{% else %}
+	<h3> You don't have any albums</h3>
+{% endif %}
+{% endblock %}

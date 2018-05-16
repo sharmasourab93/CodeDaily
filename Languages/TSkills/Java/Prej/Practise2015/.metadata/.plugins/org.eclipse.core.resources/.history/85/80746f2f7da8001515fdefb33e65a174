@@ -1,0 +1,15 @@
+
+public class CelsiustoFrah {
+
+	void CeltoFrah(double cel){
+			
+	}
+	void FrahtoCel(double frah){
+			
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

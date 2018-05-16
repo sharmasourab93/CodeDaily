@@ -1,0 +1,28 @@
+{% extends 'UI/base.html' %}
+{% block body %}
+<div>
+	<form name="Login_Page" action="/login/" method="post" >
+	{% csrf_token %}
+	<div>
+		<label for="password"> User Name:</label>
+		<input type="text" id="username" name="username" placeholder="User_Name">
+	</div>
+	<div>
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password" placeholder="**********">
+	</div>
+	<div>
+	<script>
+	username=document.getElementByname("username").value
+	password=document.getElementByname("password").value
+		function func()
+		{
+			if(username=={{users.objects.filter(username=username)}} && password={{users.objects.filter(password=password)}})
+				window.location.href="UI/homepage.html"
+		}
+	</script>
+		<button type="submit" onclick="func">Login</button>
+	</div>
+	</form>
+</div>
+{% endblock %}

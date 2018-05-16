@@ -1,0 +1,21 @@
+class Demo{
+		static public void kiran(){
+				System.out.println("\nHi I am Kiran....");
+		}
+		static void shwetha(){
+				System.out.println("\nHi this is Shwetha..");
+		}
+		private static void kandarpa(){
+				System.out.println("\nHi this is Kandarpa...");
+		}
+		public static void main(String[] args){
+				kiran();
+				shwetha();
+				kandarpa();
+		}
+}
+/*public class Demo {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	}
+}*/

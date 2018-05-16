@@ -1,0 +1,2 @@
+ENUM.FirstEnum
+ENUM.Color

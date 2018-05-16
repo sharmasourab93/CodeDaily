@@ -1,0 +1,12 @@
+public class CopyOfStEx {
+	public void show(){
+			System.out.println("From Show Method(General Method)");
+	}
+	public static void display(){
+		System.out.println("Display method(Static Method)");
+	}
+	public static void main(String args[]){
+		CopyOfStEx Stex=new CopyOfStEx();
+		Stex.display();
+	}
+}
