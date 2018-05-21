@@ -1,5 +1,3 @@
-
-
 Node *insertNode(Node *root,int data){
 	if root==NULL return newNode(data);
 	if data<root->data root->left=insertNode(root->left,data);

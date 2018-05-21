@@ -8,6 +8,7 @@ class DLL{
 			Node *left;
 			Node *right;
 		};
+		
 		Node *newNode(int data){
 			Node *temp=new Node();
 			temp->data=data;
@@ -15,6 +16,7 @@ class DLL{
 			temp->right=NULL;
 			return temp;
 		}
+
 		Node *insertNode(Node *head,int data, int pos=0){
 			Node *t;t=head;
 			cout<<"Insert begin";
@@ -42,6 +44,7 @@ class DLL{
 			}
 			cout<<"Insertion Complete"<<endl;
 		}
+
 		void deleteNode(Node *head,int data){
 			Node *t;t=head;
 			while(t->right->data!=data && t->right->right!=NULL){
@@ -53,6 +56,23 @@ class DLL{
 				delete(t1);
 			cout<<"Delete Complete"<<endl;
 		}
+
+		//Reverse a doubly linked List
+		void reverse(){
+			Node * current=new Node();
+			Node *next=new Node();
+			Node *prev=new Node();
+			prev=NULL;
+			current=head;
+			while(current!=NULL){
+				next=current->next;
+				current->next=prev;
+				prev=current;
+				current=next;
+			}
+			head=prev;
+		}
+
 		void printLL(Node *head){
 			Node *temp=head;
 			while (temp!=NULL){
@@ -60,6 +80,7 @@ class DLL{
 				temp=temp->right;
 			}
 		}
+
 		void operations(){
 			Node *head=insertNode(head,21);
 			head=insertNode(head,22,1);

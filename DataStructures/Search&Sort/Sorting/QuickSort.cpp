@@ -1,34 +1,53 @@
-//Quick Sort 
+//Quick Sort
 #include<iostream>
-#include<stdlib.h>
-#define RAND() ((rand()%8))
 using namespace std;
 class QuickSort{
 	public:
-		//Swap Function
-		void swap(int * a, int *b){
-			int t;
-			t=*a;
-			*a=*b;
-			*b=t;
+	int swap(int *a, int *b){
+		int t=*a;
+		*a=*b;
+		*b=*a;
+		return (*a,*b);
+	}
+	int partition(int array[], int low,int high){
+		cout<<"Partition"<<endl;
+		int pivot=array[((high-low)/2)+1];
+		int i=low-1;
+		for(int j=0;j<=high-1;j++){
+			cout<<"For Loop"<<endl;
+			if(array[j]<=pivot){
+				i++;
+				swap(&array[i],&array[j]);	
+			}
 		}
-		//A Recursive function which performs the quicksort function
-		int quickSort(){
-			
+		swap(&array[i+1],&array[high]);
+		return(i+1);
+	}
+	void quickSort(int array[],int low, int high){
+		if(low<high){
+			int pi=partition(array,low,high);
+			quickSort(array,low, pi-1);
+			quickSort(array,pi+1,high);
 		}
-		//A function which partitions the array in the code.
-		int partition(){
-			
+	}
+	int printArray(int arr[],int size){
+		int i;
+		for(int i=0;i<size;i++){
+			cout<<arr[i]<<" ";
 		}
-		//A driver function.
-		void simulate(){
-			
-		}
-		
+		cout<<endl;
+	}
+	int main1(){
+		int arr[]={10,7,8,9,1,5};
+		int n=sizeof(arr)/sizeof(arr[0]);
+		cout<<"Quick Sort"<<endl;
+		quickSort(arr,0,n-1);
+		cout<<"\n Sorted Array: "<<endl;
+		printArray(arr,n);
+		return 0;
+	}
 };
 int main(){
-	int array[]={7,3,4,5,1,8,2,6};
-	QuickSort qS;
-	qS.simulate();
+	QuickSort qs;
+	qs.main1();
 }
-
