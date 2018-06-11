@@ -1,0 +1,14 @@
+select * from albums;
+select distinct * from albums order by ArtistId desc ;
+select * from albums order by Title, artistid;
+
+select * from customers where company is NULL;
+select * from customers where company is NOT NULL;
+select * from customers LIMIT 3;
+select * from customers where Country='Germany' LIMIT 3;
+
+SELECT MAX(Price) AS LargestPrice FROM Products;
+SELECT MIN(Price) AS smallestPrice FROM Products;
+
+select * from invoices where total in (select min(total) from invoices);
+select * from invoices where total in (select max(total) from invoices);

@@ -1,9 +1,9 @@
 from flask import Flask, render_template
-from data import Artilces
+#from data import Articles
 app=Flask(__name__)
 
-@app.route('/')
-Articles=Articles()
+#@app.route('/')
+#Articles=Articles()
 
 @app.route('/')
 def index():

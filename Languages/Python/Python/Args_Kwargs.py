@@ -1,6 +1,7 @@
 #Args
 def testify(arg1,*argv):
     print("first argument "+arg1)
+    #print(type(argv))
     for arg in argv:
         print("next argument through *argv: " + arg )
 
