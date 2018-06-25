@@ -22,3 +22,9 @@ for x in cubes:
 x=filter(lambda x:x>9 and x<60,cubes)
 for y in x:
     print(y)
+
+#Using Zip
+a1=[1,2,3,4,5]
+name=["Sourab","Amit","Himesh"]
+x=list(zip(a1,name))
+print(x)

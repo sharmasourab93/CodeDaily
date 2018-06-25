@@ -2,13 +2,72 @@ select * from albums;
 select distinct * from albums order by ArtistId desc ;
 select * from albums order by Title, artistid;
 
+***Displaying entries using where condition and TOP LIMIT***
 select * from customers where company is NULL;
 select * from customers where company is NOT NULL;
 select * from customers LIMIT 3;
 select * from customers where Country='Germany' LIMIT 3;
 
+***Using Min & Max for various examples***
 SELECT MAX(Price) AS LargestPrice FROM Products;
 SELECT MIN(Price) AS smallestPrice FROM Products;
 
 select * from invoices where total in (select min(total) from invoices);
 select * from invoices where total in (select max(total) from invoices);
+
+***Using Count, avg & Sum***
+select count(invoiceid) from invoices;
+select avg(total) from invoices;
+select sum(total) from invoices;
+
+**Using Like***
+select * from albums where title like 'Ba%';	//Starts with Ba
+select * from albums where title like '%a';		//Ends with a
+select * from albums where title like 'a%o';	//Starts with a and ends with o
+select * from albums where title like '_a%'; //For a in the second position
+
+select * from invoices where billingcountry like '_ermany';
+
+***Using in***
+select * from customers where customerid in (select customerid from invoices);
+
+***Using Between***
+select * from customers where customerid in (select customerid from invoices where customerid between 10 AND 20);
+
+***Using Alias*** 
+select firstname as fname, lastname as lname from customers;
+select firstname  from customers as cust;
+select c.customerid,c.firstname,c.lastname,i.billingcountry from customers as c, invoices as i where c.customerid in (select customerid from invoices ) and i.billingcountry='France' and c.firstname like 'L%';
+
+***Using Joins***
+
+	***INNER JOIN***
+	select albums.AlbumId,artists.Name,albums.Title from albums INNER JOIN artists on albums.AlbumId = artists.ArtistId;
+	select albums.AlbumId,artists.Name,albums.Title,tracks.Composer from ((albums INNER JOIN artists on albums.AlbumId = artists.ArtistId )INNER JOIN tracks on albums.AlbumId=tracks.AlbumId);
+	***LEFT JOIN***
+	select * from albums LEFT JOIN artists on albums.AlbumId=artists.ArtistId; //For displaying records of both the tables 
+	select albums.AlbumId,albums.Title from albums LEFT JOIN artists on albums.AlbumId=artists.ArtistId;
+	
+	***RIGHT JOIN***
+	select customers.CustomerId,customers.FirstName,customers.LastName,invoices.InvoiceDate from customers RIGHT JOIN invoices on invoices.CustomerId=customers.CustomerId;
+	
+	
+	***FULL OUTER JOIN***
+	
+***Using UNION***
+select country from customers UNION select billingcountry from invoices order by country;
+
+
+***Using Group By*** 
+	***Using Having***
+	select * from tracks group by genreid having bytes>30200730;
+
+***ALTER***
+alter table tablename add column newborn;
+
+***Views***
+create view v1 as select name,composer,unitprice from customers where unitprice>0.99;
+
+
+****Advanced Select Queries***
+select * from tracks where albumid in (select albumid from albums where albumid in (select artistid from artists where name like 'AC%') );

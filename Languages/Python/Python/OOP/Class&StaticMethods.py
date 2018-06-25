@@ -14,9 +14,9 @@ class Person:
         return age>18
 
 person1=Person('Mayank',21)
-person2=Person.fromBirthYear('Mayank',1996)
+person2=Person.fromBirthYear('Myank',1996)
 
-print(person1.age)
-print(person2.age)
+print(person1.age,person1.name)
+print(person2.age,person2.name)
 
 print(Person.isAdult(22))

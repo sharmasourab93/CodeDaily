@@ -1,2 +1,0 @@
-import bazooka
-dir(bazooka)
