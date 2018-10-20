@@ -9,11 +9,10 @@ print(video.description)
 best=video.getbest()
 print(best.url)
 bestaudio=video.getbestaudio()
-'''streams=video.streams
+"""streams=video.streams
 allstreams=video.allstreams
 for s in streams:
     print(s)
 for l in allstreams:
-    print(l.mediatype,l.extension,l.quality)'''
-
-    
+    print(l.mediatype,l.extension,l.quality)
+"""
