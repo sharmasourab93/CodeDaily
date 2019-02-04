@@ -1,0 +1,3 @@
+Cannot Use these / \ * . < >  “ | ? $ []
+
+Higher the cardinality higher the power of index 
