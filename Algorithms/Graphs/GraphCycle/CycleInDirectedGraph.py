@@ -1,51 +1,55 @@
 #Cycle in a Direct Graph
-#Similar to DFS + A recStack
+#Similar to DFS + A recstack
+
+
 class Graph:
-    def __init__(self,V):
-        self.V=V
-        self.adjList={}
-        for i in range(V):
-            self.adjList.update({i:[]})
+				def __init__(self, v):
+								self.V = v
+								self.adjlist = {}
+								for i in range(self.V):
+												self.adjlist.update({i: []})
+				
+				def add_edge(self, dest, src):
+								self.adjlist[dest].append(src)
+				
+				def print_graph(self, graph):
+								for v in range(graph.V):
+												print("Adjacency List " + str(v) + "\thead", end="")
+												for i in graph.adjlist[v]:
+																print('->' + str(i), end="")
+												print("")
+				
+				def iscyclicutil(self, graph, v, visited, recstack):
+								visited[v] = True
+								recstack[v] = True
+								for neighbour in graph.adjlist[v]:
+												if not visited[neighbour]:
+																if self.iscyclicutil(graph, neighbour, visited, recstack):
+																				return True
+												elif recstack[neighbour]:
+																return True
+								recstack[v] = False
+								return False
+				
+				def iscyclic(self, graph):
+								visited = [False] * graph.V
+								recstack = [False] * self.V
+								for node in range(self.V):
+												if not visited[node]:
+																if self.iscyclicutil(graph, node, visited, recstack):
+																				return True
+								return False
 
-    def addEdge(self,dest,src):
-        self.adjList[dest].append(src)
 
-    def PrintGraph(self,graph):
-        for v in range(graph.V):
-            print("Adjacency List "+str(v)+"\thead", end="")
-            for i in graph.adjList[v]:
-                print('->'+str(i), end="")
-            print("")
-    def isCyclicUtil(self,graph,v,visited,recStack):
-        visited[v]=True
-        recStack[v]=True
-        for neighbour in graph.adjList[v]:
-            if visited[neighbour]==False:
-                if self.isCyclicUtil(graph,neighbour,visited,recStack)==True:
-                    return True
-            elif recStack[neighbour]==True:
-                return True
-        recStack[v]=False
-        return False
-    
-    def isCyclic(self,graph):
-        visited=[False]*graph.V
-        recStack=[False]*self.V
-        for node in range(self.V):
-            if visited[node]==False:
-                if self.isCyclicUtil(graph,node,visited,recStack)==True:
-                    return True
-        return False
-
-g=Graph(4)
-g.addEdge(0,1)
-g.addEdge(0,2)
-g.addEdge(1,2)
-#g.addEdge(2,0)
-g.addEdge(2,3)
-#g.addEdge(3,3)
-#g.PrintGraph(g)
-if g.isCyclic(g)==True:
-    print("Graph is cyclic")
+g = Graph(4)
+g.add_edge(0, 1)
+g.add_edge(0, 2)
+g.add_edge(1, 2)
+#g.add_edge(2,0)
+g.add_edge(2, 3)
+#g.add_edge(3,3)
+#g.print_graph(g)
+if g.iscyclic(g):
+				print("Graph is cyclic")
 else:
-    print("Graph is not cyclic")
+				print("Graph is not cyclic")

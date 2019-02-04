@@ -1,3 +1,7 @@
 *.exe
 /.idea
 *.ini
+*.cpp
+*.java
+/Languages/Java/*
+/Languages/C++/*
