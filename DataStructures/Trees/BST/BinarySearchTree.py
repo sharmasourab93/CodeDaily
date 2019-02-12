@@ -1,3 +1,8 @@
+"""
+Python: Binary Search Tree (BST)
+"""
+
+
 class Node:
     def __init__(self,key):
         self.left=None
