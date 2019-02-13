@@ -22,5 +22,5 @@ def insertion_sort(array, size):
     print_array(array)
 
 
-if __name__ =="__main__":
+if __name__ == "__main__":
     insertion_sort([9, 8, 7, 6, 5, 12], 6)
