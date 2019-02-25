@@ -3,6 +3,11 @@ Python : Heap Sort
 """
 
 
+def print_array(array):
+    for i in array:
+        print(i, end=" ")
+        
+        
 def heapify(array, size, i):
     largest = i
     left = 2 * i + 1
@@ -28,7 +33,7 @@ def heap_sort(array, size):
         array[0], array[i] = array[i], array[0]
         heapify(array, i, 0)
 
-    return array
+    print_array(array)
 
 
 if __name__ == "__main__":
