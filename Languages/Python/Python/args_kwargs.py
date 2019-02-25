@@ -6,9 +6,6 @@ def testify(arg1,  *argv):
         print("next argument through *argv: " + arg)
 
 
-testify("hello", "how", "are", "you")
-
-
 #Kwargs
 def hello(**kwargs):
     if kwargs is not None:
@@ -16,4 +13,5 @@ def hello(**kwargs):
             print("%s == %s" % (key, value))
 
 
+testify("hello", "how", "are", "you")
 hello(game="GeeksforGeeks")
