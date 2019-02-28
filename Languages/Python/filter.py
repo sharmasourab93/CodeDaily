@@ -1,15 +1,14 @@
-#Filter Examples
+"""
+Python: Using Filter
+"""
+
+
 def cube(x):
     return x**3
 
-
 cubes = map(cube, range(10))
-print("Iterating Cubes")
-for c in cubes:
-    print(c)
 
+store_filters = filter(lambda x: x > 9 and x < 100, cubes)
 
-store_filter = filter(lambda x: x > 9 and x < 60, cubes)
-print("Iterating Filter variable")
-for sf in store_filter:
-				print(sf)
+for i in store_filters:
+    print(i)
