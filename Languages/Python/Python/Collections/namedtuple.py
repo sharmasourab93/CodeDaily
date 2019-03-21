@@ -1,23 +1,22 @@
-"""
-Python: Collections> Namedtuple
-								Usage, Function and working of Namedtuple
-"""
-from collections import namedtuple
+import collections
 
-# Creating a namedtuple
-Student = namedtuple('Student', ['name', 'age', 'DOB'])
-S = Student('Nandini', '19', '2541997')
+Card=collections.namedtuple('Card',['rank','suit'])
+class FrenchDeck:
+    ranks=[str(n) for n in range(2,11)]
+    suits='spade diamond heart club'.split()
+    
+    def __init__(self):
+        self._cards=[Card(rank,suit) for suit in self.suits
+                    for rank in self.ranks]
+        
+        
+    def __len__(self): return len(self._cards)
+    
+    def __getitem__(self, position):
+        return self._cards[position]
 
-print("The index used by student's age: {}".format(S[1]))
-print("The keyname used by Student's name: {}".format(S.name))
-print("Get Student's DOB using getattr(): {}".format(getattr(S, 'DOB')))
 
-# To Convert to an Ordered Dict
-di = S._asdict()
-print("Dictionary Version of {} is :{}".format(S, di))
-
-# To display all fields
-print("To Display all fields {}".format(S._fields))
-
-# To Replace an element fields
-print("To replace elements in field {}".format(S._replace(name="Manjeet")))
+beer_card=Card('7','diamond')
+deck=FrenchDeck()
+print(deck[3:12])
+print(beer_card,len(deck))
