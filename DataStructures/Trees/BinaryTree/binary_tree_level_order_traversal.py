@@ -1,6 +1,7 @@
 """
 Python: Binary Tree
         Level Order Traversal
+        Complexity: O(n^2) + O(height)
 """
 
 
