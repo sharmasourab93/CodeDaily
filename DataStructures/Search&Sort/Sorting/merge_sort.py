@@ -1,58 +1,57 @@
 """
 Python : Merge Sort
+         Worst-case performance: O(n * log n)
+         Best-case performance:  O(n * log n) typical, O(n) natural variant
+         Average performance:	 O(n * log n)
+         Worst-case space complexity: О(n) total with O(n) auxiliary,
+                                      O(1) auxiliary with linked lists[1]
 """
-from math import floor
 
 
-def merge(array, low, mid, high):
+def merge_sort(array):
 
-    n1 = mid - low + 1
-    n2 = high - mid
+    # print("Splitting :", array)
+    if len(array) > 1:
 
-    r1 = []
-    r2 = []
+        # Splitting arrays into half
+        mid = len(array) // 2
+        left, right = array[:mid], array[mid:]
 
-    i, j = 0, 0
+        # Recursively subdividing into left and right
+        merge_sort(left)
+        merge_sort(right)
 
-    for i in range(n1):
-        r1.append(array[low+i])
+        i, j, k = 0, 0, 0
 
-    for j in range(n2):
-        r2.append(array[mid-1+j])
+        # Comparing elements of left sub-array and Right Sub-array
+        while i < len(left) and j < len(right):
 
-    i, j, k = 0, 0, low
+            if left[i] < right[j]:
+                array[k] = left[i]
+                i += 1
 
-    while i < n1 and j < n2:
+            else:
+                array[k] = right[j]
+                j += 1
+            k += 1
 
-        if r1[i] <= r2[j]:
-            array[k] = r1[i]
-            i += 1
-        else:
-            array[k] = r2[j]
-            j += 1
-
-        k += 1
-
-        while i < n1:
-            array[k] = r1[i]
+        # Iterating through remaining elements of sub-arrays if any
+        # Iterating through left sub-array
+        while i < len(left):
+            array[k] = left[i]
             i += 1
             k += 1
 
-        while j < n2:
-            array[k] = r2[j]
+        # Iterating through right sub-array
+        while j < len(right):
+            array[k] = right[j]
             j += 1
             k += 1
 
-
-def merge_sort(array, low, high):
-    if low < high:
-        mid = floor((low + high) / 2)
-        merge_sort(array, low, mid)
-        merge_sort(array, mid+1, high)
-        merge(array, low, mid, high)
+    # print("Merging", array)
 
 
 if __name__ == "__main__":
     array = [10, 54, 1, 89, 13, 12, 98]
-    merge_sort(array, 0, 7)
+    merge_sort(array)
     print(array)
