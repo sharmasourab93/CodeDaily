@@ -25,6 +25,7 @@ select * from albums where title like 'Ba%';	//Starts with Ba
 select * from albums where title like '%a';		//Ends with a
 select * from albums where title like 'a%o';	//Starts with a and ends with o
 select * from albums where title like '_a%'; //For a in the second position
+select distinct(city) from station where city rlike  '^[aeiou].*[aeiou]$' order by city; // Using regexp for First & Last characters
 
 select * from invoices where billingcountry like '_ermany';
 

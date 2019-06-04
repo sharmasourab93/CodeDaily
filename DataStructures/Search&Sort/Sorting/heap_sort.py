@@ -1,5 +1,9 @@
 """
 Python : Heap Sort
+         Worst-case performance: O(n * log n)
+         Best-case performance:  O(n * log n)
+         Average performance:    O(n * log n)
+         Worst-case space complexity: O(n), total O(1) auxiliary
 """
 
 
@@ -10,8 +14,7 @@ def print_array(array):
         
 def heapify(array, size, i):
     largest = i
-    left = 2 * i + 1
-    right = 2 * i + 2
+    left, right = 2 * i + 1, 2 * i + 2
 
     if left < size and array[left] > array[i]:
         largest = left
@@ -37,4 +40,5 @@ def heap_sort(array, size):
 
 
 if __name__ == "__main__":
-    heap_sort([9, 8, 7, 6, 5, 12], 6)
+    array = [9, 8, 7, 6, 5, 12]
+    heap_sort(array, len(array))

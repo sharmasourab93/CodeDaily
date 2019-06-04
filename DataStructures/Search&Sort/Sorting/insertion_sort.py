@@ -1,5 +1,9 @@
 """
 Python: Insertion Sort
+        Worst-case performance: О(n^2) comparisons and swaps
+        Best-case performance:  O(n) comparisons, O(1) swaps
+        Average performance:    О(n2) comparisons and swaps
+        Worst-case space complexity: О(n) total, O(1) auxiliary
 """
 
 
@@ -23,4 +27,5 @@ def insertion_sort(array, size):
 
 
 if __name__ == "__main__":
-    insertion_sort([9, 8, 7, 6, 5, 12], 6)
+    array = [9, 8, 7, 6, 5, 12]
+    insertion_sort(array, len(array))

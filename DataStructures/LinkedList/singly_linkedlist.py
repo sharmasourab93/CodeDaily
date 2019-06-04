@@ -73,15 +73,14 @@ class LinkedList:
 
         3. Set head as prev and return head
         """
-        next_node = None
-        prev_node = None
+
+        next_node, prev_node = None, None
         current_node = head
 
         while current_node:
             next_node = current_node.next
             current_node.next = prev_node
-            prev_node = current_node
-            current_node = next_node
+            prev_node, current_node = current_node, next_node
 
         head = prev_node
         return head

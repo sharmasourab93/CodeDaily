@@ -24,7 +24,7 @@ class DoublyLinkedList:
         if self.head is not None:
             self.head.prev = new_node
 
-        self.head=new_node
+        self.head = new_node
 
     # To insert after a given node based on data
     def insert_after(self, prev_node, new_data):
@@ -57,7 +57,8 @@ class DoublyLinkedList:
         new_node.prev = last
         return self.head
 
-    def print_list(self, node):
+    @staticmethod
+    def print_list(node):
         last = None
         print("\nTraversal in forward Direction")
 
@@ -73,12 +74,13 @@ class DoublyLinkedList:
             last = last.prev
 
 
-llist = DoublyLinkedList()
-llist.append(6)
-llist.push(7)
-llist.push(1)
-llist.append(4)
-llist.insert_after(llist.head.next,8)
+if __name__ == '__main__':
+    head_list = DoublyLinkedList()
+    head_list.append(6)
+    head_list.push(7)
+    head_list.push(1)
+    head_list.append(4)
+    head_list.insert_after(head_list.head.next, 8)
 
-print("Created DLL is :")
-llist.print_list(llist.head)
+    print("Created DLL is :")
+    head_list.print_list(head_list.head)

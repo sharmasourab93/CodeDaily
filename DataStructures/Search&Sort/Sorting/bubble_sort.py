@@ -1,5 +1,8 @@
 """
 Python : Bubble Sort
+         Worst Case Performance: O(n^2), O(n^2) Swaps
+         Best Case Performance: O(n), O(1) swaps
+         Worst Case Space Complexity: O(1) Auxiliary Space
 """
 
 
@@ -18,4 +21,5 @@ def bubble_sort(array, size):
 
 
 if __name__ == "__main__":
-    bubble_sort([9, 8, 7, 6, 5, 12], 6)
+    array = [9, 8, 7, 6, 5, 12]
+    bubble_sort(array, len(array))
