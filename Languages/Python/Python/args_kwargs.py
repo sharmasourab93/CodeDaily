@@ -1,7 +1,12 @@
-#Args
+"""
+Python: Using Args & Kwargs with examples
+"""
+
+
 def testify(arg1,  *argv):
     print("first argument " + arg1)
-    #print(type(argv))
+
+    # print(type(argv))
     for arg in argv:
         print("next argument through *argv: " + arg)
 
@@ -13,5 +18,6 @@ def hello(**kwargs):
             print("%s == %s" % (key, value))
 
 
-testify("hello", "how", "are", "you")
-hello(game="GeeksforGeeks")
+if __name__ == '__main__':
+    testify("hello", "how", "are", "you")
+    hello(game="GeeksforGeeks")
