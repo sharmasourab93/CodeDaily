@@ -1,7 +1,7 @@
-*.exe
-/.idea
+*.pyc
 *.ini
-*.cpp
-*.java
-/Languages/Java/*
-/Languages/C++/*
+*.exe
+/__pycache__
+/__pycache__/*
+/.idea
+/.idea/*
