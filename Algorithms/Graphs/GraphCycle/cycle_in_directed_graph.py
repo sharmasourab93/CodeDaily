@@ -20,19 +20,21 @@ class Graph:
     def print_graph(graph):
         for v in range(graph.V):
             print("Adjacency List " + str(v) + "\thead", end="")
+
             for i in graph.adjlist[v]:
                 print('->' + str(i), end="")
-            print("")
+
+            print()
 
     # A Utility Recursive Cycle Detection Method
-    def is_cyclic_util(self, v, visited, rec_stack):
+    def is_cyclic_util(self, visited, rec_stack, v):
         visited[v] = True
         rec_stack[v] = True
 
         for neighbour in self.adj_list[v]:
-            if not visited[neighbour]:
 
-                if self.is_cyclic_util(neighbour, visited, rec_stack):
+            if not visited[neighbour]:
+                if self.is_cyclic_util(visited, rec_stack, neighbour):
                     return True
 
             elif rec_stack[neighbour]:
@@ -49,7 +51,7 @@ class Graph:
         for node in range(self.V):
             if not visited[node]:
 
-                if self.is_cyclic_util(node, visited, rec_stack):
+                if self.is_cyclic_util(visited, rec_stack, node):
                     return True
 
         return False
