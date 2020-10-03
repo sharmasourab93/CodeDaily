@@ -28,7 +28,9 @@ def ugly_numbers(num):
     nex_mul_5 = prime_fac_list[i5] * 5
     
     for i in range(1, num):
-        prime_fac_list[i] = min(nex_mul_2, nex_mul_3, nex_mul_5)
+        prime_fac_list[i] = min(nex_mul_2,
+                                nex_mul_3,
+                                nex_mul_5)
         if prime_fac_list[i] == nex_mul_2:
             i2 += 1
             nex_mul_2 = prime_fac_list[i2] * 2

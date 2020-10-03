@@ -1,0 +1,21 @@
+Resources : Interviewbit, GeeksforGeeks, Youtube, Blogs, Class Notes etc.
+
+Prime feature of the plan is to follow Interviewbit diligently as it covers all the relevant topics in data structures and algorithms for interviews.
+
+Week 1 : Time Complexity, Arrays, Maths.
+
+Week 2 : Binary Search, String, Bit Manipulation.
+
+Week 3 : Linked Lists, Two Pointers, Stacks & Queues.
+
+Week 4 : Backtracking, Hashing, Greedy.
+
+Week 5 : Heaps & Maps, Trees.
+
+Week 6 : Graphs, DP.
+
+Week 7 : Resume, Operating Systems, Databases, Computer Networking,System Design.
+
+Week 8 : Go through interview experiences on GeeksforGeeks as if its a real interview, Practice communication.
+
+Use topicwise problems on GeeksforGeeks in each week as supplementary source wherever possible.
