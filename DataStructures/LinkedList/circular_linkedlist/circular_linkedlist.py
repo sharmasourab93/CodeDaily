@@ -1,107 +1,109 @@
 """
 Python: Circular Linked List (CLL)
+
 """
 
 
 class Node:
+    
     def __init__(self, data):
         self.data = data
         self.next = None
-
-
-def print_nodes(head):
-    temp = head
-
-    while temp:
-        print(temp.data, end="->")
-        temp = temp.next
-    
-    print("\n")
-
+        
 
 class CircularLinkedList:
     
     def __init__(self):
-        self.last = None
-        
-    def add_to_empty(self, data):
-        
-        if self.last is not None:
-            return self.last
-        
-        temp = Node(data)
-        self.last = temp
-        self.last.next = self.last
-        return self.last
+        self.head = None
     
-    def add_to_begin(self, data):
+    # Pushing items into a Circular Linked list
+    def push_in_cll(self, data):
         
-        if self.last is None:
-            return self.add_to_empty(data)
+        ptr1 = Node(data)
+        temp = self.head
         
-        temp = Node(data)
-        temp.next = self.last.next
-        self.last.next = temp
-        
-        return self.last
-    
-    def add_end(self, data):
-        
-        if self.last is None:
-            return self.add_to_empty(data)
-        
-        temp = Node(data)
-        temp.next = self.last.next
-        self.last.next = temp
-        self.last = temp
-        
-        return self.last
-    
-    def add_after(self, data, item):
-        
-        if self.last is None:
-            return None
-        
-        temp = Node(data)
-        p = self.last.next
-        
-        while p:
-            if p.data == item:
-                temp.next = p.next
-                p.next = temp
-                
-                if p == self.last:
-                    self.last = temp
-                    return self.last
-                else:
-                    return self.last
-            
-            p = p.next
-            if p == self.last.next:
-                print(item, "not present in the list")
-                break
-    
-    def traverse(self):
-        if self.last is None:
-            print("List is empty")
+        # Condition 1. if Head is None
+        if self.head is None:
+            self.head = ptr1
+            ptr1.next = self.head
             return
         
-        temp = self.last.next
-        while temp:
-            print(temp.data, end=" ")
-            temp = temp.next
-            if temp == self.last.next:
-                break
+        ptr1.next = self.head
+        
+        # Condition 2: If Head is not None
+        # While Iterator's next is not equal to Head
+        if self.head is not None:
+            while temp.next != self.head:
+                temp = temp.next
+                if temp.next == self.head:
+                    break
+            temp.next = ptr1
+            
+        self.head = ptr1
+    
+    # Prints the Circular Linked list
+    # While breaking away on the loop.
+    def print_list(self):
+        
+        if self.head is None:
+            print(" No Nodes to traverse/iterate over.")
+            return
 
-   
+        temp = self.head
+        
+        while True:
+            if self.head is not None:
+                print("{0}".format(temp.data), end="->")
+                temp = temp.next
+            
+            if temp == self.head:
+                break
+                
+    def delete_node(self, data):
+        
+        if self.head is None:
+            print("Circular list is empty.")
+            return
+        
+        temp = self.head
+        
+        if temp.data == data:
+            del_node = temp
+            new_temp = self.head
+            
+            while new_temp.next != del_node:
+                new_temp = new_temp.next
+            
+            self.head = del_node.next
+            new_temp.next = self.head
+        
+        else:
+        
+            while temp.next.data != data:
+                temp = temp.next
+            
+            del_node = temp.next
+            temp.next = del_node.next
+        
+        del_node.next = None
+        del del_node
+        return
+            
+
 if __name__ == '__main__':
-    llist = CircularLinkedList()
+    llist_ = CircularLinkedList()
     
-    last = llist.add_to_empty(6)
-    last = llist.add_to_begin(4)
-    last = llist.add_to_begin(2)
-    last = llist.add_end(8)
-    last = llist.add_end(12)
-    last = llist.add_after(10, 8)
+    # llist_.delete_node(1)
     
-    llist.traverse()
+    llist_.push_in_cll(1)
+    llist_.push_in_cll(2)
+    llist_.push_in_cll(3)
+    llist_.push_in_cll(4)
+    llist_.push_in_cll(5)
+    
+    print("Printing the list")
+    llist_.print_list()
+    
+    print("\nDeleting node from list")
+    llist_.delete_node(1)
+    llist_.print_list()
