@@ -3,6 +3,8 @@ Python: Singly Linked List
         Detect & Remove Loops in a linked list
 """
 
+global loop_p
+
 
 class Node:
     def __init__(self, data):
@@ -30,39 +32,26 @@ class LinkedList:
             temp = temp.next
 
         print()
-
-    def remove_loop(self, loop_node):
-
-        ptr1 = self.head
-        ptr2 = loop_node
-
-        while 1:
-
-            while ptr2.next != loop_node and ptr2.next != ptr1:
-                ptr2 = ptr2.next
-
-            if ptr2.next == ptr1:
-                break
-
-            ptr1 = ptr1.next
-
-        ptr2.next = None
-
-    # TODO: Fix Detect Loop method
-    def detect_loop(self):
-
-        slow_p = fast_p = self.head
-
-        while slow_p and fast_p and fast_p.next:
-
-            slow_p = slow_p.next
-            fast_p = fast_p.next.next
-
-            if slow_p == fast_p:
-                self.remove_loop(slow_p)
-                return 1
-
-        return 0
+        
+    def detech_remove_loop(self):
+        
+        temp, hold = self.head, 0
+        stack = list()
+        stack.append(temp)
+        
+        while temp.next != self.head:
+            hold = temp
+            temp = temp.next
+            if temp not in stack:
+                stack.append(temp)
+                
+            else:
+                del stack
+                return hold.next, hold
+        
+        del stack
+        return self.head, None
+        
 
 
 if __name__ == '__main__':
@@ -72,12 +61,18 @@ if __name__ == '__main__':
     first.push(15)
     first.push(20)
     first.push(50)
-
+    
+    first.print_list()
     first.head.next.next.next.next.next = first.head.next.next
-
-    if first.detect_loop() == 1:
-        print("Loop detected & removed")
+    hold_start, hold_end = first.detech_remove_loop()
+    
+    if hold_end is not None:
+        print("Loop found between Node{0} and Node{1}"
+              .format(hold_start.data, hold_end.data))
+        
+        print("Removing Loop")
+        hold_end.next = None
         first.print_list()
-
-    else:
-        print("Loop not detected")
+        
+    print("No Loops found.")
+    first.print_list()
