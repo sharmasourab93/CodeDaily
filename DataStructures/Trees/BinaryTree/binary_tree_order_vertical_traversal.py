@@ -1,17 +1,14 @@
+"""
+Python: Binary Tree
+        Vertical Order Traversal
+"""
+
+
 class Node:
     
     def __init__(self, data):
         self.data = data
         self.left = self.right = None
-        
-
-def inorder(root):
-    if root is None:
-        return
-    
-    inorder(root.left)
-    print(root.data, end=" ")
-    inorder(root.right)
 
 
 def height(root):
@@ -23,27 +20,6 @@ def height(root):
     right = 1 + height(root.right)
     
     return max(left, right)
-
-
-def level_util(root, level):
-    
-    if root is None:
-        return
-    
-    if level == 1:
-        print("Printing Data", root.data, end=" ")
-        
-    elif level > 1:
-        level_util(root.left, level-1)
-        level_util(root.right, level-1)
-        
-
-def level_traversal(root):
-    h = height(root)
-    for i in range(1, h+1):
-        print("Level ", i, end=" ")
-        level_util(root, i)
-        print("")
 
 
 def vertical_traversal_util(root, level, mapd):
@@ -58,18 +34,11 @@ def vertical_traversal_util(root, level, mapd):
 
 def vertical_traversal(root):
     h = height(root)
-    mapd = dict()
-    for i in range(-h + 1, h - 1):
-        mapd[i] = []
+    mapd = {i: [] for i in range(-h + 1, h + 1)}
     
     vertical_traversal_util(root, 0, mapd)
-    result = []
-    range_ = list(mapd.keys())
-    for i in range_:
-        if len(mapd[i]) != 0:
-            result.append(mapd[i].pop(0))
             
-    return result
+    return {k: v for k, v in mapd.items() if len(v) != 0}
     
     
 if __name__ == '__main__':
@@ -79,6 +48,18 @@ if __name__ == '__main__':
     root.right.right.right = Node(6)
     root.right.right.left = Node(3)
     root.right.right.left.right = Node(4)
+    root.right.right.left.left = Node(7)
+    root.right.right.left.right = Node(8)
+    root.right.right.left.right.left = Node(9)
+    root.right.right.left.right.right = Node(10)
+    root.left = Node(11)
+    root.left.left = Node(12)
+    root.left.right = Node(12)
+    root.left.left.right = Node(13)
+    root.left.left.left = Node(14)
     
     result = vertical_traversal(root)
-    print(' '.join(list(map(str, result))))
+    
+    for k, v in result.items():
+        print("Level {0}: [{1}]"
+              .format(k, ' '.join(list(map(str, v)))))

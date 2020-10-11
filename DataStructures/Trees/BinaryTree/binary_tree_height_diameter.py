@@ -59,4 +59,3 @@ if __name__ == "__main__":
     # To print the diameter of a binary tree
     d = diameter(root)
     print("Diameter of a binary tree", d)
-
