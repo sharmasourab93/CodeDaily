@@ -23,20 +23,15 @@ def delete_deepest(root, item):
     queue = list()
     queue.append(root)
     
-    temp = None
-    
     while len(queue) != 0:
         
-        temp = queue.pop()
+        temp = queue.pop(0)
         if temp == item:
-            temp = None
-            del item
             return
         
         if temp.right:
             if temp.right == item:
                 temp.right = None
-                del item
                 return
             else:
                 queue.append(temp.right)
@@ -44,7 +39,6 @@ def delete_deepest(root, item):
         if temp.left:
             if temp.left == item:
                 temp.left = None
-                del item
                 return
             else:
                 queue.append(temp.left)
@@ -84,18 +78,18 @@ def delete_node(root, key):
         
 
 if __name__ == "__main__":
-    root = Node(13)
-    root.left = Node(12)
-    root.right = Node(10)
-    root.left.left = Node(4)
-    root.left.right = Node(19)
-    root.right.right = Node(9)
-    root.right.left = Node(16)
+    root = Node(10)
+    root.left = Node(11)
+    root.right = Node(9)
+    root.left.left = Node(7)
+    root.left.right = Node(12)
+    root.right.right = Node(8)
+    root.right.left = Node(15)
     
     print("Printing Nodes Inorder", end=":")
     in_order(root)
     
-    value = 12
+    value = 11
     print("\nPrinting nodes after deletion of value {0}:"
           .format(value), end=" ")
     root = delete_node(root, value)
