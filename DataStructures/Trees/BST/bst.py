@@ -1,5 +1,9 @@
 """
 Python: Binary Search Tree (BST)
+        Operations:
+            i. Insert a node
+           ii. Delete a node
+          iii. Search a node
 """
 
 
@@ -57,12 +61,10 @@ def delete_node(root, key):
     else:
         if root.left is None:
             temp = root.right
-            root = None
             return temp
 
         elif root.right is None:
             temp = root.left
-            root = None
             return temp
 
         temp = min_value(root.right)
@@ -72,17 +74,21 @@ def delete_node(root, key):
     return root
 
 
-# To Count K Min values
-def count_k(self, node, k):
-        s = []
+# For searching a key in the tree
+def search(root, key):
+    if root is None:
+        return False
 
-        if node is not None and len(s) < k:
-            self.count_k(node.left, k)
-            s.append(node.data)
-            self.count_k(node.right, k)
+    if root.key == key:
 
-        print(s)
+        return True
 
+    if root.key > key:
+        return search(root.left, key)
+
+    else:
+        return search(root.right, key)
+    
 
 if __name__ == "__main__":
     root = None
@@ -97,6 +103,7 @@ if __name__ == "__main__":
     print("In Order", end=" ")
     inorder(root)
 
+
     print("\nAfter deleting 20", end=":")
     root = delete_node(root, 20)
 
@@ -104,5 +111,13 @@ if __name__ == "__main__":
 
     print("\nAfter deleting 50", end=":")
     root = delete_node(root, 50)
-
     inorder(root)
+
+    find = 80
+    find_element = search(root, find)
+    print("\nFinding the element {0} in the tree.".format(find))
+    if find_element:
+        print("{0} found.".format(find))
+
+    else:
+        print("{0} not found".format(find))
