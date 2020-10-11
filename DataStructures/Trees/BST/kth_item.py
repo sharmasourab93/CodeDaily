@@ -28,17 +28,17 @@ def insert(root, data):
     return root
 
 
-def kth_largest(root, k, c=[0]):
+def kth_largest(root, k, c):
     if root is None or c[0] >= k:
         return
-    
+
     kth_largest(root.right, k, c)
     c[0] += 1
     
     if c[0] == k:
         print(root.data)
         return
-    
+
     kth_largest(root.left, k, c)
     
 
@@ -75,9 +75,9 @@ if __name__ == '__main__':
     print("In Order", end=" ")
     inorder(root)
     
-    k = 3
+    k, list_ = 3, [0]
     print("\n {0} largest".format(k))
-    kth_largest(root, k)
+    kth_largest(root, k, list_)
     
     print("\n{0} smallest".format(k))
     kth_smallest(root, k)
