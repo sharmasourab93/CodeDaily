@@ -12,16 +12,30 @@ class Color(Enum):
 
 
 class Graph:
+    
     def __init__(self, V):
+        
         self.V = V
-        self.adj_list = {i: [list(), Color(1)] for i in range(self.V)}
+        self.adj_list = {i: [list(), Color.GRAY] for i in range(self.V)}
 
     def add_edge(self, src, dest):
-            self.adj_list[src][0].append(dest)
+        
+        self.adj_list[src][0].append(dest)
+
+    @staticmethod
+    def print_graph(graph):
+        
+        print("ADL " + "\thead", end="\n")
+        for v in range(graph.V):
+            print(str(v), end=":\t\t")
+            for i in graph.adj_list[v]:
+                print('->' + str(i), end="")
+        
+            print()
 
     def is_cyclic_util(self, i):
-
-        self.adj_list[i][1] = Color(2)
+        
+        self.adj_list[i][1] = Color.RED
 
         for j in self.adj_list[i][0]:
             if self.adj_list[j][1].name == 'RED':
@@ -30,8 +44,8 @@ class Graph:
             if self.adj_list[j][1].name == 'GRAY' and \
                     self.is_cyclic_util(j):
                 return True
-
-        self.adj_list[i][1] = Color(3)
+        
+        self.adj_list[i][1] = Color.BLACK
         return False
 
     def is_cyclic(self):
@@ -50,7 +64,8 @@ if __name__ == '__main__':
     g.add_edge(1, 2)
     g.add_edge(2, 3)
     g.add_edge(3, 1)
-
+    Graph.print_graph(g)
+    
     if g.is_cyclic():
         print("Graph contains Cycle")
     else:

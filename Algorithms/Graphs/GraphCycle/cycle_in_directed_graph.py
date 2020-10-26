@@ -18,10 +18,10 @@ class Graph:
 
     @staticmethod
     def print_graph(graph):
+        print("ADL " + "\thead", end="\n")
         for v in range(graph.V):
-            print("Adjacency List " + str(v) + "\thead", end="")
-
-            for i in graph.adjlist[v]:
+            print(str(v), end=":\t\t")
+            for i in graph.adj_list[v]:
                 print('->' + str(i), end="")
 
             print()
@@ -63,9 +63,8 @@ if __name__ == "__main__":
     g.add_edge(0, 1)
     g.add_edge(0, 2)
     g.add_edge(1, 2)
-    # g.add_edge(2,0)
+    # g.add_edge(2, 0)
     g.add_edge(2, 3)
-    # g.add_edge(3,3)
 
     g.print_graph(g)
 
